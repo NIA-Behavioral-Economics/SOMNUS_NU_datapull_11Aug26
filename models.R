@@ -9,13 +9,13 @@ library(glmmTMB)
 library(dplyr)
 
 # LOAD DATA 
-zdrug_short <- readRDS("/schhome/users/epstewar/SOMNUS/NU_data_pull_synth_data/Data/zdrug_short.rds")
-zdrug_long <- readRDS("/schhome/users/epstewar/SOMNUS/NU_data_pull_synth_data/Data/zdrug_long.rds")
-total <- readRDS("/schhome/users/epstewar/SOMNUS/NU_data_pull_synth_data/Data/total.rds")
-benzo <- readRDS("/schhome/users/epstewar/SOMNUS/NU_data_pull_synth_data/Data/benzo.rds")
+zdrug_short <- readRDS("/directory/zdrug_short.rds")
+zdrug_long <- readRDS("/directory/zdrug_long.rds")
+total <- readRDS("/directory/Data/total.rds")
+benzo <- readRDS("/directory/benzo.rds")
   
 # OUTPUT RESULTS 
-sink("/schhome/users/epstewar/SOMNUS/NU_data_pull_synth_data/Results/SOMNUS_models.txt")
+sink("/directory/SOMNUS_models.txt")
 
 # MODEL 1
 ## PRIMARY OUTCOME: 5 MG PILL COUNTS
