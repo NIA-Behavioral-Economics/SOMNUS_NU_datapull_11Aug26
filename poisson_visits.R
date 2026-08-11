@@ -121,7 +121,7 @@ rx <- sample %>%
   rx$ETA <- exp(beta0 + rx$xb + rx$clinic_re + rx$prov_re)
   #convert ETA to counts 
   #this simulates a truncated Poisson distribution, where every value must be greater than 0
-  rx$quantity <- extraDistr::rtpois(nrow(rx), lambda = rx$ETA)
+  rx$quantity <- extraDistr::rtpois(nrow(rx), lambda = rx$ETA, a = 1)
   
   #add drug strength 
   #generate random number from 1 to n based on number of possible drugs 
@@ -286,9 +286,14 @@ benzo$convert <- ifelse(grepl("ALP|XAN|CLON|KLON", benzo$NAME), 10,
                                     ifelse(grepl("CHLORDIAZEPOXIDE", benzo$NAME), 0.4,
                                      NA))))))))))
 
+#DIAZEPAM MILLIGRAM EQUIVALENTS 
+benzo$DME <- benzo$dose*benzo$quantity*benzo$convert
+
 #2-MG DIAZEPAM PILL EQUIVALENTS 
 benzo$DME <- benzo$dose*benzo$quantity*benzo$convert
-benzo$pills <- benzo$DME/2
+pills_benzo <- benzo %>%
+       filter(rx == 1 & !is.na(DME)) %>%
+       mutate(pills = round((DME/2)))
 
 #save benzo data
 saveRDS(benzo, file = "/directory/benzo.rds")

@@ -13,7 +13,10 @@ zdrug_short <- readRDS("/directory/zdrug_short.rds")
 zdrug_long <- readRDS("/directory/zdrug_long.rds")
 total <- readRDS("/directory/Data/total.rds")
 benzo <- readRDS("/directory/benzo.rds")
-  
+pills_short <- readRDS("/directory/zdrug_short.rds")
+pills_long <- readRDS("/directory/zdrug_long.rds")
+pills_total <- readRDS("directory/total.rds")
+
 # OUTPUT RESULTS 
 sink("/directory/SOMNUS_models.txt")
 
