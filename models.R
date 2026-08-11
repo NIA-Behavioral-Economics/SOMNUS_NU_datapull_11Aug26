@@ -2,18 +2,6 @@
 ### RUN SOMNUS MODELS WITH SYNTHETIC DATA FOR NU DATA PULL
 #############################################################################################################
 
-# changes: changed data structure, models running separately vs. using covariate in model, 
-#and time frame (days vs. months) to match ct.gov 
-# questions: discrepancy between protocol and ct.gov regarding cbt-i time frame 
-# benzo pill equivalents (not DME)
-#### 2-mg diazepam pill equivalents. DME divided by 2-unlike 5-mg z-drug equivalents where strength is divided by 5
-# THE WAY JI YOUNG GIVES THE DATA SUBGROUP ANALYSES WILL NOT BE STRATIFIED BY USER TYPE (IN OTHER WORDS MODEL WLL BE OVERALL)
-# should discordant encounters also include cbt-i prescrbing 
-# restricted model: limited only to primary outcome? Also by user type and other subgroups? 
-## do we want to know whether clinician removed an order? Current alert data tells us what happens if they keep an order, but we won't 
-## know the cases where there was an order that was removed (unless it shows up as canceled?)
-## unless in other words 
-
 # LIBRARIES 
 library(lme4)
 library(sqldf)
