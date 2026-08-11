@@ -19,7 +19,7 @@ zdrug$rn <- seq_len(nrow(zdrug))
 zdrug_rx <- zdrug %>% select(NAME, medication_id, STRENGTH, FORM, ROUTE, rn)
 
 #save data 
-saveRDS(zdrug_rx, file = "/schhome/users/epstewar/SOMNUS/NU_data_pull_synth_data/Data/zdrug_rx.rds")
+saveRDS(zdrug_rx, file = "/directory/zdrug_rx.rds")
 
 #benzos 
 benzo_rx <- sqldf("select name, medication_id, generic_name, strength, form, route, 1 as in_benzo from drugs 
@@ -29,7 +29,7 @@ benzo_rx <- sqldf("select name, medication_id, generic_name, strength, form, rou
 #add rownumber 
 benzo_rx$rn <- seq_len(nrow(benzo_rx))
 benzo_rx <- benzo_rx %>% select(NAME, medication_id, STRENGTH, FORM, ROUTE, rn)
-saveRDS(benzo_rx, file = "/schhome/users/epstewar/SOMNUS/NU_data_pull_synth_data/Data/benzo_rx.rds")
+saveRDS(benzo_rx, file = "/directory/benzo_rx.rds")
 
 #other 
 other <- sqldf("select * from
