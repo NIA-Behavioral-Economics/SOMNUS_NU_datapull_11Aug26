@@ -1,8 +1,10 @@
 **PURPOSE**
-	The SOMNUS_NU_datapull_11Aug26 repository contains code to create synthetic data to run analyses prespecified on clinicaltrials.gov. 
-	This is to ensure that all required data elements and variables will be accounted for in a one-time data pull at Northwestern Medicine. 
+
+The SOMNUS_NU_datapull_11Aug26 repository contains code to create synthetic data to run analyses prespecified on clinicaltrials.gov. 
+This is to ensure that all required data elements and variables will be accounted for in a one-time data pull at Northwestern Medicine. 
 	
 **DATA** 
+
 	1. Synthetic prescription and clinician-monthly visit data with prespecified fixed and random effect sizes for two-part hurdle model with binomial 
 	   and Poisson distributions 
 
@@ -33,12 +35,15 @@
 Schaeffer Center for Health Policy and Economics, University Southern California
 	   
 **FILES**
+
   *drug_tables.R*
+  
   i. Creates separate tables for each pharmaceutical class (e.g., Z-drugs, benzodiazepines) to derive drug strength for synthetic prescription data 
      a. zdrug_rx (prescription name, strength, route, etc. for Z-drugs)
      b. benzo_rx (same as above for benzodiazepines)
   
   *binomial_visits.R*
+  
   i. Creates a flat file (binomial.rds) with aggregated visit counts for every study month per-clinician (444 clinicians * 48 study months = 21,312 rows)
  ii. Variable list:
  		 a. prov_id (clinician ID: 1-444)
@@ -72,6 +77,7 @@ Schaeffer Center for Health Policy and Economics, University Southern California
  	  ac. end_date (end date for study month)
  	  
  	  *poisson_visits.R*
+ 	  
  	  i. Combines visit, clinician, and clinic data from binomial.rds with poisson prescription outcomes to create analytic datasets
  	     a. total.rds (analytic dataset for primary Z-drug outcome for all visits, n = 5,321,768)
  	        1. prov_id (clinician ID)
@@ -120,6 +126,7 @@ Schaeffer Center for Health Policy and Economics, University Southern California
  	     k. pills_benzo.rds (subset of visits where benzodiazepine was prescribed (n = 248,218)
  	     
  	     *models.R*
+ 	     
  	     i. Executes models reported on clinicaltrials.gov
  	    ii. For hurdle models, separate glmer models used to estimate binomial (outcome = rx) and poisson (pills) outcomes for Z-drugs and benzodiazepines 
  	   iii. Glmer Poisson used for CBT-I orders 
