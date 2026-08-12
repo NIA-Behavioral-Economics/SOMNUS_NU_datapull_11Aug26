@@ -8,10 +8,9 @@ and Poisson distributions
 
 **ANALYSES**  
 	*PRIMARY*  
-	1.Two-stage knotted spline hurdle model testing truncated kmonth x treatment reductions in Z-drug prescribing frequency (binomial) 
-		and 5-mg pill counts (Poisson)  
+	1.Two-stage knotted spline hurdle model testing truncated kmonth x treatment reductions in Z-drug prescribing frequency (binomial) and 5-mg pill counts (Poisson)  
 	2.  Other analyses with primary outcome:  
-	    a. During intervention (study months 1 to 18) and post-intervention (study months 19 to 30)  
+			a. During intervention (study months 1 to 18) and post-intervention (study months 19 to 30)  
 	       i. Overall and by user type  
 	      
 	*SECONDARY*  
