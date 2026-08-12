@@ -237,8 +237,6 @@ cbti <- function (dat) {
              Tx2,
              post,
              mnth,
-             kmnthTx,
-             kmnthFu,
              cpresc) %>%
     summarise(
       cbti = sum(cbti, na.rm = TRUE),

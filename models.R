@@ -13,9 +13,13 @@ zdrug_short <- readRDS("/directory/zdrug_short.rds")
 zdrug_long <- readRDS("/directory/zdrug_long.rds")
 total <- readRDS("/directory/Data/total.rds")
 benzo <- readRDS("/directory/benzo.rds")
+pills_benzo <- readRDS("/directory/benzo.rds")
 pills_short <- readRDS("/directory/zdrug_short.rds")
 pills_long <- readRDS("/directory/zdrug_long.rds")
 pills_total <- readRDS("directory/total.rds")
+cbti_total <- readRDS("/directory/cbti_total.rds")
+cbti_short <- readRDS("/directory/cbti_short.rds")
+cbti_long <- readRDS("/directory/cbti_long.rds")
 
 # OUTPUT RESULTS 
 sink("/directory/SOMNUS_models.txt")
@@ -62,14 +66,14 @@ primary_outcome <- function(dat, datpills) {
   return(list(summary(m1_p1), summary(m1_p2)))
 }
 # CONVERGED
-#m1_long <- primary_outcome(zdrug_long, pills_long)
-#m1_long
+m1_long <- primary_outcome(zdrug_long, pills_long)
+m1_long
 # CONVERGED
-#m1_short <- primary_outcome(zdrug_short, pills_short)
-#m1_short
+m1_short <- primary_outcome(zdrug_short, pills_short)
+m1_short
 # CONVERGED
-#m1_total <- primary_outcome(total, pills_total)
-#m1_total
+m1_total <- primary_outcome(total, pills_total)
+m1_total
 
 # MODEL 2
 ## SECONDARY OUTCOME: CBT-I ORDERS
@@ -94,15 +98,15 @@ secondary_cbti <- function(dat) {
  return(summary(m2))
 }
 # CONVERGED
-# m2_long <- secondary_cbti(cbti_long)
+m2_long <- secondary_cbti(cbti_long)
 # CONVERGED
-#m2_long
+m2_long
 # CONVERGED
-#m2_short <- secondary_cbti(cbti_short)
-#m2_short
+m2_short <- secondary_cbti(cbti_short)
+m2_short
 # CONVERGED
-#m2_total <- secondary_cbti(cbti_total)
-#m2_total
+m2_total <- secondary_cbti(cbti_total)
+m2_total
 
 # MODEL 3
 ## SECONDARY OUTCOME: 2-MG DIAZEPAM PILL EQUIVALENTS
@@ -124,7 +128,7 @@ m3_p1 <- glmer(
     glmerControl(calc.derivs = FALSE, optimizer = "bobyqa")
 )
 # CONVERGED
-#summary(m3_p1)
+summary(m3_p1)
 
 m3_p2 <- glmer(
     pills ~ 
@@ -135,11 +139,12 @@ m3_p2 <- glmer(
       # tx + time two-way interactions
       Tx1:mnth + Tx2:mnth + Tx1:kmnthTx + Tx2:kmnthTx +
       (1|clinic_id/prov_id),
-      data = benzo %>%
-      filter(post != 2 & rx == 1),
+      data = pills_benzo %>%
+      filter(post != 2),
     family = poisson, 
     glmerControl(calc.derivs = FALSE, optimizer = "bobyqa")
 )
+# CONVERGED
 summary(m3_p2)
 
 # MODEL 4
@@ -161,6 +166,7 @@ m4 <- glmer(
     family = binomial, 
     glmerControl(calc.derivs = FALSE, optimizer = "bobyqa")
   )
+# CONVERGED
 summary(m4)
   
 # MODEL 5
@@ -265,8 +271,7 @@ m7_p2 <- glmer(
     # tx + time two-way interactions
     Tx1:mnth + Tx2:mnth + Tx1:kmnthTx + Tx2:kmnthTx + Tx1:kmnthFu + Tx2:kmnthFu + 
     (1|clinic_id/prov_id),
-  data = benzo %>%
-  filter(rx == 1),
+  data = pills_benzo,
   family = poisson, 
   glmerControl(calc.derivs = FALSE, optimizer = "bobyqa")
 )
