@@ -2,27 +2,27 @@
 The SOMNUS_NU_datapull_11Aug26 repository contains code to create synthetic data to run analyses prespecified on clinicaltrials.gov. 
 This is to ensure that all required data elements and variables will be accounted for in a one-time data pull at Northwestern Medicine.
 
-**DATA**..
+**DATA**  
 Synthetic prescription and clinician-monthly visit data with prespecified fixed and random effect sizes for two-part hurdle model with binomial 
 and Poisson distributions 
 
-**ANALYSES**<br>
-	*PRIMARY*
+**ANALYSES**  
+	*PRIMARY*  
 	1. Two-stage knotted spline hurdle model testing truncated kmonth x treatment reductions in Z-drug prescribing frequency (binomial) 
-	   and 5-mg pill counts (Poisson)
-	2. Other analyses with primary outcome:
-	   a. During intervention (study months 1 to 18) and post-intervention (study months 19 to 30)
-	      i. Overall and by user type 
+	   and 5-mg pill counts (Poisson)  
+	2. Other analyses with primary outcome:  
+	   a. During intervention (study months 1 to 18) and post-intervention (study months 19 to 30)  
+	      i. Overall and by user type  
 	      
-	*SECONDARY*
-	1. Mixed logistic model testing month x treatment change in clinician-monthly CBT-I orders from intervention start to intervention end 
-	   a. By user type (short- vs. long-term)
-	2. Two-stage knotted spline hurdle model testing truncated kmonth x treatment reductions in benzodiazepine prescribing frequency (binomial)
-	   and 2-mg pill equivalents (Poisson)
-	3. Mixed logistic model testing truncated kmonth x treatment reductions in discordant Z-drug prescribing (> 35 pills for < 35 days' supply)
-	4. Secondary outcomes also assessed in post-intervention period 
+	*SECONDARY*  
+	1. Mixed logistic model testing month x treatment change in clinician-monthly CBT-I orders from intervention start to intervention end   
+	   a. By user type (short- vs. long-term)  
+	2. Two-stage knotted spline hurdle model testing truncated kmonth x treatment reductions in benzodiazepine prescribing frequency (binomial)  
+	   and 2-mg pill equivalents (Poisson)  
+	3. Mixed logistic model testing truncated kmonth x treatment reductions in discordant Z-drug prescribing (> 35 pills for < 35 days' supply)  
+	4. Secondary outcomes also assessed in post-intervention period   
 	
-	*UNRESTRICTED*
+	*UNRESTRICTED*  
 	1. Hurdle model for primary outcome will be tested using an unrestricted model which includes two-way treatment interactions 
 	   (accountable justification x default) and three-way knotted time by treatment interactions (accountable justification x default x kmonth)
 	   a. Unrestricted model will be tested separately in intervention and post-intervention periods
