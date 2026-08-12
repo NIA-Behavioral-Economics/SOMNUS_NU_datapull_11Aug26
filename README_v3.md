@@ -1,14 +1,12 @@
-**PURPOSE**
+**PURPOSE**  
 The SOMNUS_NU_datapull_11Aug26 repository contains code to create synthetic data to run analyses prespecified on clinicaltrials.gov.
 This is to ensure that all required data elements and variables will be accounted for in a one-time data pull at Northwestern Medicine.
 
-**DATA**
+**DATA**  
 Synthetic prescription and clinician-monthly visit data with prespecified fixed and random effect sizes for two-part hurdle model with binomial and Poisson distributions.
 
-**ANALYSES**
-
-*PRIMARY*
-
+**ANALYSES**  
+*PRIMARY*  
 1. Two-stage knotted spline hurdle model testing truncated kmonth x treatment reductions in Z-drug prescribing frequency (binomial) and 5-mg pill counts (Poisson)
 2. Other analyses with primary outcome:
 
@@ -16,8 +14,7 @@ Synthetic prescription and clinician-monthly visit data with prespecified fixed 
 
      * Overall and by user type
 
-*SECONDARY*
-
+*SECONDARY*  
 1. Mixed logistic model testing month x treatment change in clinician-monthly CBT-I orders from intervention start to intervention end
 
    * By user type (short- vs. long-term)
@@ -25,18 +22,16 @@ Synthetic prescription and clinician-monthly visit data with prespecified fixed 
 3. Mixed logistic model testing truncated kmonth x treatment reductions in discordant Z-drug prescribing (> 35 pills for < 35 days' supply)
 4. Secondary outcomes also assessed in post-intervention period
 
-*UNRESTRICTED*
-
+*UNRESTRICTED*  
 1. Hurdle model for primary outcome will be tested using an unrestricted model which includes two-way treatment interactions (accountable justification x default) and three-way knotted time by treatment interactions (accountable justification x default x kmonth)
 
    * Unrestricted model will be tested separately in intervention and post-intervention periods
    * If interaction effects are insignificant, then we will proceed with restricted model (i.e., no treatment interactions)
 
-**LICENSE**
+**LICENSE**  
 Schaeffer Center for Health Policy and Economics, University Southern California
 
-**FILES**
-
+**FILES**  
 * *drug_tables.R*
 
   * Creates separate tables for each pharmaceutical class (e.g., Z-drugs, benzodiazepines) to derive drug strength for synthetic prescription data
@@ -133,10 +128,10 @@ Schaeffer Center for Health Policy and Economics, University Southern California
       * `cpresc` (clinic prescribing)
   * `cbti_short.rds` (n = 13,320)
 
-    * Same variables as cbti_total on short-term Z-drug users
+    * Same variables as cbti_total for short-term Z-drug users
   * `cbti_long` (n = 13,320)
 
-    * Same variables as cbti_total on long-term Z-drug users
+    * Same variables as cbti_total for long-term Z-drug users
   * `pills_long.rds` (subset of visits where Z-drug was prescribed for Poisson model for long-term users (n = 50,419))
   * `pills_short.rds` (subset of visits where Z-drug was prescribed for Poisson model for short-term users (n = 121,199))
   * `pills_total.rds` (subset of visits where Z-drug was prescribed for Poisson model for all users (n = 171,618))
