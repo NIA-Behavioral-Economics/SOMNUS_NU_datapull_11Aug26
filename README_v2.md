@@ -35,7 +35,7 @@ Schaeffer Center for Health Policy and Economics, University Southern California
 
 * *binomial_visits.R*  
   *  Creates a flat file with aggregated visit counts for every study month per-clinician (444 clinicians * 48 study months = 21,312 rows)  
-  *  `binomial.rds`
+  *  `binomial.rds`  
     *  Variable list:  
      *  `prov_id` (clinician ID: 1-444)
      *  `month` (study month: baseline = 1-18, intervention = 19-36, post-intervention = 37-48)
@@ -68,27 +68,27 @@ Schaeffer Center for Health Policy and Economics, University Southern California
      *  `end_date` (end date for study month)
 
 * *poisson_visits.R*  
-  *  Combines visit, clinician, and clinic data from `binomial.rds` with Poisson prescription outcomes to create analytic datasets 
-  *  `total.rds` (analytic dataset for primary Z-drug outcome for all visits, n = 5,321,768) 
-    *  Variable list: 
-     *  `prov_id` (clinician ID)
-     *  `clinic_id` (clinic ID)
-     *  `Tx1` (accountable justification intervention)
-     *  `Tx2` (default intervention)
-     *  `post` (study period)
-     *  `mnth` (month centered)
-     *  `kmnthTx` (intervention study month)
-     *  `kmnthFu` (post-intervention study month)
-     *  `cpresc` (high vs. low clinic prescribing)
-     *  `quantity` (NA if rx = 0 (i.e., no prescription), otherwise pill quantity randomly generated using same methodology for binomial outcome above)
-     *  `dose` (prescription info. merged from zdrug_rx, NA if rx = 0, otherwise destringed drug strength)
-     *  `rx` (Z-drug prescription: 0 = no, 1 = yes)
-     *  `cbti` (CBT-I order where rx = 1: 0 = no, 1 = yes)
-     *  `rx_start_date` (start date for prescription randomly generated from study month dates)
-     *  `rx_end_date` (end date for prescription: start_date + days_supply)
-     *  `days_supply` (randomly generated, assumes a minimum of 5 and a 0.30 decrease over time post-intervention for treatment groups)
-     *  `name` (prescription name: NA if rx = 0, otherwise populated)
-     *  `pills` (5 mg Z-drug pill equivalents: (dose/5) x quantity, NA if rx = 0, else populated)
+  *  Combines visit, clinician, and clinic data from `binomial.rds` with Poisson prescription outcomes to create analytic datasets  
+  *  `total.rds` (analytic dataset for primary Z-drug outcome for all visits, n = 5,321,768)  
+    *  Variable list:  
+     *  `prov_id` (clinician ID)  
+     *  `clinic_id` (clinic ID)  
+     *  `Tx1` (accountable justification intervention)  
+     *  `Tx2` (default intervention)  
+     *  `post` (study period)  
+     *  `mnth` (month centered)  
+     *  `kmnthTx` (intervention study month)  
+     *  `kmnthFu` (post-intervention study month)  
+     *  `cpresc` (high vs. low clinic prescribing)  
+     *  `quantity` (NA if rx = 0 (i.e., no prescription), otherwise pill quantity randomly generated using same methodology for binomial outcome above)  
+     *  `dose` (prescription info. merged from zdrug_rx, NA if rx = 0, otherwise destringed drug strength)  
+     *  `rx` (Z-drug prescription: 0 = no, 1 = yes)  
+     *  `cbti` (CBT-I order where rx = 1: 0 = no, 1 = yes)  
+     *  `rx_start_date` (start date for prescription randomly generated from study month dates)  
+     *  `rx_end_date` (end date for prescription: start_date + days_supply)  
+     *  `days_supply` (randomly generated, assumes a minimum of 5 and a 0.30 decrease over time post-intervention for treatment groups)  
+     *  `name` (prescription name: NA if rx = 0, otherwise populated)  
+     *  `pills` (5 mg Z-drug pill equivalents: (dose/5) x quantity, NA if rx = 0, else populated)  
      *  `discordant` (Z-drug prescription not within guidelines: > 35 pills for 5-week days' supply, NA if rx = 0, otherwise populated)  
   *  `zdrug_long.rds` (n = 798,285)  
     *  Same variables as total.rds on subset of patients that are long-term users (n = 798,285)  
