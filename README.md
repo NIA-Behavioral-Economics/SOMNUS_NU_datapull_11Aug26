@@ -1,11 +1,9 @@
-**PURPOSE**
-
+**PURPOSE**<br>
 The SOMNUS_NU_datapull_11Aug26 repository contains code to create synthetic data to run analyses prespecified on clinicaltrials.gov. 
 This is to ensure that all required data elements and variables will be accounted for in a one-time data pull at Northwestern Medicine. 
 	
-**DATA** 
-
-	1. Synthetic prescription and clinician-monthly visit data with prespecified fixed and random effect sizes for two-part hurdle model with binomial 
+**DATA**<br>
+  1. Synthetic prescription and clinician-monthly visit data with prespecified fixed and random effect sizes for two-part hurdle model with binomial 
 	   and Poisson distributions 
 
 **ANALYSES**
