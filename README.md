@@ -1,12 +1,12 @@
-**PURPOSE**<br>
+**PURPOSE**  
 The SOMNUS_NU_datapull_11Aug26 repository contains code to create synthetic data to run analyses prespecified on clinicaltrials.gov. 
-This is to ensure that all required data elements and variables will be accounted for in a one-time data pull at Northwestern Medicine. 
-	
-**DATA**<br>
-  1. Synthetic prescription and clinician-monthly visit data with prespecified fixed and random effect sizes for two-part hurdle model with binomial 
-	   and Poisson distributions 
+This is to ensure that all required data elements and variables will be accounted for in a one-time data pull at Northwestern Medicine.
 
-**ANALYSES**
+**DATA**..
+Synthetic prescription and clinician-monthly visit data with prespecified fixed and random effect sizes for two-part hurdle model with binomial 
+and Poisson distributions 
+
+**ANALYSES**<br>
 	*PRIMARY*
 	1. Two-stage knotted spline hurdle model testing truncated kmonth x treatment reductions in Z-drug prescribing frequency (binomial) 
 	   and 5-mg pill counts (Poisson)
@@ -28,8 +28,7 @@ This is to ensure that all required data elements and variables will be accounte
 	   a. Unrestricted model will be tested separately in intervention and post-intervention periods
 	   b. If interaction effects are insignificant, then we will proceed with restricted model (i.e., no treatment interactions) 
 
-**LICENSE**
-
+**LICENSE**<br>
 Schaeffer Center for Health Policy and Economics, University Southern California
 	   
 **FILES**
