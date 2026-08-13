@@ -158,7 +158,7 @@ rx <- sample %>%
   days_supply = pmax(days_supply, 1),
   
   #create prescription end date
-  rx_end_date = rx_start_date + days_supply)
+  rx_end_date = rx_start_date + days_supply
   
   #unfurl non-rx visits (zero portion of binomial model)
   nonrx <- sample %>%
