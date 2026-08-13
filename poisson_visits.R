@@ -250,7 +250,7 @@ cbti_short <- cbti(zdrug_short)
 cbti_long <- cbti(zdrug_long)
 cbti_total <- cbti(total)
 
-# SUBSET DATA FOR POISSON OUTCOME 
+#subset data for Poisson outcome
 pills <- function(dat) {
  out <- dat %>%
       filter(rx == 1) %>%
