@@ -129,7 +129,7 @@ Schaeffer Center for Health Policy and Economics, University Southern California
   * `cbti_short.rds` (n = 13,320)
 
     * Same variables as cbti_total for short-term Z-drug users
-  * `cbti_long` (n = 13,320)
+  * `cbti_long.rds` (n = 13,320)
 
     * Same variables as cbti_total for long-term Z-drug users
   * `pills_long.rds` (subset of visits where Z-drug was prescribed for Poisson model for long-term users (n = 50,419))
