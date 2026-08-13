@@ -113,7 +113,7 @@ Schaeffer Center for Health Policy and Economics, University Southern California
     * Same variables as total.rds with addition of:
 
       * `convert` (diazepam conversion factor)
-      * `DME` (diazepam milligram equivalents: dose*quantity*convert)
+      * `DME` (diazepam milligram equivalents: dose x quantity x convert)
       * `pills` in this dataset correspond to 2 mg pill equivalents (DME/2)
   * `cbti_total.rds` (444 clinicians x 30 study months (excludes baseline) = 13,320)
 
